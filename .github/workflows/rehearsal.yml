@@ -1,0 +1,37 @@
+name: Organisation rehearsal
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rehearsal-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Check synthetic fixture
+        run: python -c "from pathlib import Path; assert Path('fixture.txt').read_text() == 'rehearsal-ok\n'"
+      - name: Prove the default token cannot write repository contents
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tests/permissions.py read-only
+  deployment-permission:
+    needs: rehearsal-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Record a synthetic GitHub deployment only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tests/permissions.py deployment
