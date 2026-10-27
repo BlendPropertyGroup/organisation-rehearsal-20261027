@@ -7,3 +7,7 @@
 - Testing: local fixture and syntax checks follow. Hosted CI, read-only token write rejection, explicitly scoped synthetic deployment permission, pull-request failure/success and disposable-only transfer verification remain pending. Synthetic GitHub deployment metadata is not a deployed application or proof of any production provider integration.
 - Commit/push: not yet published. Merge: no PR merged. Application deployment: none and not authorised. Live verification: no production mutation; 22 personal repository IDs/owners inventoried before rehearsal. All live repositories must remain with blendproperty unless separately approved.
 - Gates: private-repository branch protection requires a suitable organisation plan and separate spending approval; public-repository rehearsal cannot prove private-plan eligibility. Live transfer, real deployment credentials/integrations, member invitations and extra costs require approval. All live-system acceptance and approval gates remain outside this disposable rehearsal.
+
+## 2026-10-27 - Negative controls verified
+
+- Testing: direct push of b6dd0ec to protected main was rejected; main stayed 2d9fc73. PR #1 failed rehearsal-check and skipped deployment-permission. GitHub rejected its merge with HTTP405: Required status check rehearsal-check is failing. The fixture is restored; positive CI and merge remain pending.
