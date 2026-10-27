@@ -23,3 +23,13 @@
 ## 2026-10-27 - Negative controls verified
 
 - Testing: direct push of b6dd0ec to protected main was rejected; main stayed 2d9fc73. PR #1 failed rehearsal-check and skipped deployment-permission. GitHub rejected its merge with HTTP405: Required status check rehearsal-check is failing. The fixture is restored; positive CI and merge remain pending.
+
+## 2026-10-27 - GitHub Team activation verified; live transfers remain paused
+
+- Implementation: evidence-only update; no application or workflow code changed. The user completed the approved organisation subscription checkout.
+- Testing: authenticated GitHub REST readback at 06:13:18 UTC / 08:13:18 SAST reports organisation BlendPropertyGroup (ID348651235), plan team, two licensed seats and one filled seat. Owner browser Licensing also displays GitHub Team and Your plan was changed successfully. Current member list contains only blendproperty; default repository permission remains none.
+- Live ownership verification: all22 original personal repository IDs still resolve to their original blendproperty names. The organisation contains only this synthetic rehearsal repository, ID1435287249. No live repository, customer, provider, payment, signature or production deployment was changed by this verification.
+- Commit and push: this context-only evidence is promoted through the normal protected pull-request process. Merge and exact default-branch context readback are verified at handoff; neither a local edit nor an open PR counts as completed promotion.
+- Deployment and configuration: organisation Team subscription is active, as verified independently through REST and the Licensing UI. No new members, paid add-ons, repository transfers or production configuration changes were performed. Licensing availability is not proof that private-repository protections are configured or enforced.
+- Live production verification: no production runtime or business journey was exercised. Existing public disposable permission checks may run automatically for this documentation PR; they are restricted to this repository and create synthetic GitHub deployment metadata only.
+- Outstanding gates: no live transfer is authorised. Private-fork migration handling, provider/app/token/runner/monitor migration, private disposable enforcement testing, production acceptance and recovery gates remain outstanding. Preserve prior UAT/provider/data/training/legal/privacy/finance/recovery/approval gates. Any additional security products or broader spend require separate approval.
